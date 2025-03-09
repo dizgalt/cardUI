@@ -1,0 +1,224 @@
+/* Global Styles */
+:root {
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --color-white: #ffffff;
+    --color-bg-overlay: rgba(255, 255, 255, 0.016);
+    --color-bg-overlay-inner: rgba(255, 255, 255, 0.053);
+    --color-bg-overlay-premium: rgba(255, 255, 255, 0.064);
+    --color-description: rgba(255, 255, 255, 0.483);
+    --color-description-premium: rgba(255, 255, 255, 0.767);
+    
+    /* badgeBase */
+    --badge-bg: rgba(255, 255, 255, 0.347);
+    --badge-text: rgba(0, 0, 0, 0.72);
+    
+    /* primaryBadge */
+    --badgePrimary-bg: rgb(255, 255, 255);
+    --badgePrimary-text-color: #000000;
+    
+    /* secondaryBadge */
+    --badgeSecondary-bg: rgba(255, 255, 255, 0.249);
+    --badgeSecondary-text-color: #e2e2e2;
+    --card-width: 340px;
+    --card-border-radius: 36px;
+    --card-padding: 12px;
+    --content-padding: 16px;
+    --divider-margin: 16px 0px 16px 0px;
+    --divider-color: rgba(235, 235, 235, 0.08);
+    
+    /* primaryButton */
+    --buttonPrimary-bg: rgb(255, 255, 255);
+    --buttonPrimary-bg-hover: rgba(255, 255, 255, 0.942);
+    --buttonPrimary-text-color: #4b0088;
+    
+    /* secondaryButton */
+    --buttonSecondary-bg: rgba(255, 255, 255, 0.249);
+    --buttonSecondary-bg-hover: rgba(206, 206, 206, 0.159);
+    --buttonSecondary-text-color: var(--color-white);
+    --card-shadow: 0px 2px 20px rgba(0, 0, 0, 0.382);
+    --card-hover-transform: scale(1.05);
+    --card-hover-shadow: 0px 10px 60px rgba(20, 2, 28, 0.419);
+    --card-blur: blur(100px);
+    --card-border-width: 0.5px;
+    --card-border-style: solid;
+    --card-border-color: rgba(255, 255, 255, 0.108);
+  }
+  
+  body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 24px;
+    margin: 42px 0;
+    background-image: url(assets/1920x1080.png);
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    font-family: var(--font-family);
+  }
+  
+  /* Base Card Styles */
+  .card {
+    width: var(--card-width);
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    background-color: var(--color-bg-overlay);
+    backdrop-filter: var(--card-blur);
+    border: var(--card-border-width) var(--card-border-style) var(--card-border-color);
+  }
+  
+  .card:hover {
+    transform: var(--card-hover-transform);
+    box-shadow: var(--card-hover-shadow);
+  }
+  
+  .card__content {
+    background-color: var(--color-bg-overlay-inner);
+    border-radius: calc(var(--card-border-radius) - 8px);
+    padding: var(--content-padding);
+  }
+  
+  .card--premium .card__content {
+    background-color: var(--color-bg-overlay-premium);
+  }
+  
+  .card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .card__title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-white);
+  }
+  
+  /* Базовый стиль бейджа */
+  .card__badge {
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  
+  /* Модификатор для Badge Primary */
+  .card__badge--primary {
+    background-color: var(--badgePrimary-bg);
+    color: var(--badgePrimary-text-color);
+  }
+  
+  /* Модификатор для Badge Secondary */
+  .card__badge--secondary {
+    background-color: var(--badgeSecondary-bg);
+    color: var(--badgeSecondary-text-color);
+  }
+  
+  .card__divider {
+    border: 0.5px solid var(--divider-color);
+    margin: var(--divider-margin);
+  }
+  
+  .card__body {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card__description {
+    margin: 0px;
+    color: var(--color-description);
+    padding-bottom: 16px;
+  }
+  
+  .card--premium .card__description {
+    color: var(--color-description-premium);
+  }
+  
+  /* Базовый стиль для кнопок */
+  .card__button {
+    width: 100%;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Модификатор для кнопки Primary */
+  .card__button--primary {
+    background-color: var(--buttonPrimary-bg);
+    color: var(--buttonPrimary-text-color);
+  }
+  
+  .card__button--primary:hover {
+    background-color: var(--buttonPrimary-bg-hover);
+  }
+  
+  /* Модификатор для кнопки Secondary */
+  .card__button--secondary {
+    background-color: var(--buttonSecondary-bg);
+    color: var(--buttonSecondary-text-color);
+  }
+  
+  .card__button--secondary:hover {
+    background-color: var(--buttonSecondary-bg-hover);
+  }
+  
+  /* Premium-specific Styles */
+  .card--premium {
+    background-image: url(assets/primaryCardBg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  /* Features List */
+  .card__features {
+    list-style: none;
+    padding: 16px;
+    padding-bottom: 42px;
+    margin: 0;
+  }
+  
+  .card__feature {
+    display: flex;
+    gap: 16px;
+    color: var(--color-white);
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+  
+  .card__feature img {
+    width: 24px;
+  }
+  
+  /* Ribbon for Premium Card */
+  .card__ribbon {
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    color: var(--color-white);
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .card:hover {
+      transform: none !important;
+      box-shadow: none !important;
+    }
+  }
